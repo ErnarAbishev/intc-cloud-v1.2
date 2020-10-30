@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block uploaddocument %}
+
+<div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+        <h1 class="display-4">Загрузка документов</h1>
+        <div class="mb-5 mt-5">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="text-center">
+                    <button type="submit" class="btn btn-outline-primary btn-lg">Загрузить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock%}

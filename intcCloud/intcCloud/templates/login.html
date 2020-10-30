@@ -1,0 +1,70 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="{% static '/img/logo.png' %}">
+    <title>INTC Cloud</title>
+</head>
+<style>
+    .requiredField {
+        font-weight: 600;
+    }
+
+    #wrap {
+        padding: 100px;
+        border-radius: 5px;
+        border: 1px solid #cccccc;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #wrap {
+            border: none;
+            padding: 10px;
+        }
+    }
+
+    body {
+        margin: 150px 0;
+    }
+</style>
+
+<body>
+    <div id="wrap" class="container">
+        <form class="form-signin" method="post">
+            {% for message in messages %}
+            <div class="alert alert-danger">
+                <a class="close" href="#" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+            {% endfor %}
+            <div class="text-center">
+                <img class="mb-4" src="{% static '/img/logo.png' %}" alt="" width="186" height="100">
+            </div>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <div class="text-center">
+                <button class="btn btn-outline-primary btn-lg">Вход в INTC Cloud</button>
+                <span>&nbsp;</span>
+                <a href="https://wa.me/+77087529320" class="btn btn-outline-danger btn-lg">Забыли пароль?</a>
+                <br>
+                <br>
+                <br>
+                <p>&copy; 2020 INTC Cloud. Powered by <a href="#" class="badge badge-primary">404web.studio</a></p>
+            </div>
+        </form>
+    </div>
+    <script src="{% static '/js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static '/js/popper.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

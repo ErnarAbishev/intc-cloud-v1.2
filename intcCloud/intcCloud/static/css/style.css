@@ -1,0 +1,60 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#main {
+    margin-bottom: 100px;
+    padding: 180px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/main.jpeg');
+}
+footer {
+position: static;
+bottom: 0;
+width: 100%;
+}
+  .example-1 .form-group {
+    padding: 1em;
+    margin: 1em
+  }
+
+  .example-1 input[type=file] {
+    outline: 0;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none
+  }
+
+  .example-1 .label {
+    width: 120px;
+    border: 2px dashed grey;
+    border-radius: 5px;
+    display: block;
+    padding: 1.2em;
+    transition: border 300ms ease;
+    cursor: pointer;
+    text-align: center
+  }
+
+  .example-1 .label i {
+    display: block;
+    font-size: 42px;
+    padding-bottom: 16px
+  }
+
+  .example-1 .label i,
+  .example-1 .label .title {
+    color: grey;
+    transition: 200ms color
+  }
+
+  .example-1 .label:hover {
+    border: 2px solid #000
+  }
+
+  .example-1 .label:hover i,
+  .example-1 .label:hover .title {
+    color: #000
+  }
