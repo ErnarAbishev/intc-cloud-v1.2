@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% block documentlist %}
+{% block diplomalist %}
 <div class="container">
-  <h1 class="display-4 mb-5 mt-5 text-center">Таблица документов</h1>
+  <h1 class="display-4 mb-5 mt-5 text-center">Список дипломных проектов</h1>
   <div class="container">
     <form class="mr-auto mb-5">
       <script>
@@ -39,25 +39,24 @@
       <table id="myTable" class="table table-hover text-center">
         <thead class="bg-primary">
           <tr>
-            <th scope="col" class="text-white">ФИО преподавателя</th>
-            <th scope="col" class="text-white">Модуль</th>
-            <th scope="col" class="text-white">Дисциплина</th>
-            <th scope="col" class="text-white">Цикл</th>
+            <th scope="col" class="text-white">Специальность</th>
+            <th scope="col" class="text-white">Квалификация</th>
             <th scope="col" class="text-white">Группа</th>
-            <th colspan="2" scope="col" class="text-white">Файл</th>
-            <!--<th scope="col" class="text-white">Действие</th>-->
+            <th scope="col" class="text-white">Тема</th>
+            <th scope="col" class="text-white">ФИО студента</th>
+            <th scope="col" colspan="2" class="text-white">Файл</th>
           </tr>
         </thead>
         <tbody>
-          {% for document in documents %}
+          {% for document in diplomas %}
           <tr>
-            <td>{{ document.teacherName }}</td>
-            <td>{{ document.documentName }}</td>
-            <td>{{ document.documentName2 }}</td>
-            <td>{{ document.cycleType }}</td>
-            <td>{{ document.studyGroup }}</td>
+            <td>{{ document.speciality }}</td>
+            <td>{{ document.qualification }}</td>
+            <td>{{ document.group }}</td>
+            <td>{{ document.theme }}</td>
+            <td>{{ document.student }}</td>
             <td><a href="{{ document.document.url }}" class="btn btn-outline-success">Скачать</a></td>
-            <form method="post" action="{% url 'delete_document' document.pk %}">
+            <form method="post" action="{% url 'delete_diploma' document.pk %}">
               {% csrf_token %}
               {% if request.user.is_superuser %}
               <td><button class="btn btn-outline-danger">Удалить</button></td>

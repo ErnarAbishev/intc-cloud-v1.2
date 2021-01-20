@@ -32,12 +32,14 @@
         <div class="d-flex flex-column flex-md-row align-items-center p-3 bg-white border-bottom shadow-sm">
             <h5 class="my-0 mr-md-auto font-weight-normal">INTC Cloud</h5>
             <nav class="my-2 my-md-0 mr-md-3">
-                <a class="p-2 text-dark" href="/home">Главная</a>
+                <a class="p-2 text-dark" href="{% url 'home' %}">Главная</a>
                 <a class="p-2 text-dark" href="#" data-toggle="modal" data-target="#staticBackdrop">Инструкция</a>
-                <a class="p-2 text-dark" href="/documents/">Список документов</a>
-                <a class="p-2 text-dark" href="/documents/upload">Загрузка документов</a>
+                <a class="p-2 text-dark" href="{% url 'document_list' %}">Список документов</a>
+                <a class="p-2 text-dark" href="{% url 'diploma_list' %}">Список дипломных проектов</a>
+                <a class="p-2 text-dark" href="{% url 'upload_document' %}">Загрузка документов</a>
+                <a class="p-2 text-dark" href="{% url 'upload_diploma' %}">Загрузка дипломных проектов</a>
             </nav>
-            <a class="btn btn-outline-danger" href="/logout">Выход</a>
+            <a class="btn btn-outline-danger" href="{% url 'signout' %}">Выход</a>
         </div>
     </header>
 
@@ -50,11 +52,17 @@
     {% block documentlist %}
     {% endblock %}
 
+    {% block uploaddiploma %}
+    {% endblock %}
+
+    {% block diplomalist %}
+    {% endblock %}
     <footer class="bg-dark p-1 text-center">
         <div class="container">
             <a href="#"><img class="mb-4 mt-4" src="{% static '/img/logo.png' %}" alt="Logo" width="128"
                     height="72"></a>
-            <p class="text-white">&copy; 2020 INTC Cloud. Powered by <a href="#" class="badge badge-primary">404web.studio</a></p>
+            <p class="text-white">&copy; 2021 INTC Cloud. Powered by <a href="https://www.instagram.com/404web.studio" class="badge badge-primary">404web.studio</a></p>
+            <p class="text-white">Техническая поддержка <a href="https://wa.me/+77087529320" class="badge badge-success">Helpdesk</a></p>
         </div>
     </footer>
 

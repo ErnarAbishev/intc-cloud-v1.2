@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from .forms import DocumentForm
-from .models import Document
+from .forms import DocumentForm, DiplomaForm
+from .models import Document, DiplomaDocument
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
@@ -57,3 +57,27 @@ def delete_document(request, pk):
         document = Document.objects.get(pk=pk)
         document.delete()
     return redirect('document_list')
+
+def diploma_list(request):
+    diplomas = DiplomaDocument.objects.all()
+    return render(request, 'diploma_list.html', {
+        'diplomas': diplomas
+    })
+
+def upload_diploma(request):
+    if request.method == 'POST':
+        form = DiplomaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('diploma_list')
+    else:
+        form = DiplomaForm()
+    return render(request, 'upload_diploma.html', {
+        'form': form
+    })
+
+def delete_diploma(request, pk):
+    if request.method == 'POST':
+        document = DiplomaDocument.objects.get(pk=pk)
+        document.delete()
+    return redirect('diploma_list')
